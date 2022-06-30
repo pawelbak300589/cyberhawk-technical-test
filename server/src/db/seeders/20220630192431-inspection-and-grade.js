@@ -9,7 +9,7 @@ module.exports = {
       for (let inspectionNum = 0; inspectionNum < 2; inspectionNum++) {
         const inspection = {
           turbine_id: turbineId,
-          inspection_at: faker.date.recent(),
+          inspection_at: faker.date.recent(30),
           createdAt: new Date(),
           updatedAt: new Date(),
         };

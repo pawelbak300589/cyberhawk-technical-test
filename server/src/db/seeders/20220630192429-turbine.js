@@ -6,7 +6,7 @@ module.exports = {
 
     for (let i = 0; i < 5; i++) {
       const turbine = {
-        name: `Wind Farm in ${faker.address.city()}`,
+        name: `The ${faker.word.adjective()} turbine`,
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
         farm_id: Math.floor(Math.random() * 5) + 1,
