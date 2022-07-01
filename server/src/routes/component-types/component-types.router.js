@@ -8,6 +8,6 @@ const {
 const componentTypesRouter = express.Router();
 
 componentTypesRouter.get('/', httpGetAllComponentTypes);
-componentTypesRouter.get('/:componentType', httpGetComponentTypeById);
+componentTypesRouter.get('/:componentTypeID', httpGetComponentTypeById);
 
 module.exports = componentTypesRouter;

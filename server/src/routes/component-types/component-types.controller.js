@@ -17,7 +17,7 @@ async function httpGetAllComponentTypes(req, res, next) {
 
 async function httpGetComponentTypeById(req, res, next) {
   try {
-    const componentTypeId = req.params.componentType;
+    const componentTypeId = req.params.componentTypeID;
 
     const componentType = await ComponentType.findByPk(componentTypeId);
 
