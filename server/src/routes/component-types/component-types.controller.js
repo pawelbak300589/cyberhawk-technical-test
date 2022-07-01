@@ -15,6 +15,22 @@ async function httpGetAllComponentTypes(req, res, next) {
   }
 };
 
+async function httpGetComponentTypeById(req, res, next) {
+  try {
+    const componentTypeId = req.params.componentType;
+
+    const componentType = await ComponentType.findByPk(componentTypeId);
+
+    if (!componentType) throw 'Component type not found';
+
+    return res.status(200).json(componentType);
+
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   httpGetAllComponentTypes,
+  httpGetComponentTypeById,
 };
