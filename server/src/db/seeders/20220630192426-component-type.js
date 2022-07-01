@@ -3,23 +3,23 @@ module.exports = {
     await queryInterface.bulkInsert('component_types', [
       {
         name: 'Blade',
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        created_at: new Date(),
+        updated_at: new Date(),
       },
       {
         name: 'Rotor',
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        created_at: new Date(),
+        updated_at: new Date(),
       },
       {
         name: 'Hub',
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        created_at: new Date(),
+        updated_at: new Date(),
       },
       {
         name: 'Generator',
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        created_at: new Date(),
+        updated_at: new Date(),
       },
     ], {});
   },

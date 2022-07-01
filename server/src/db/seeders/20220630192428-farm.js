@@ -7,8 +7,8 @@ module.exports = {
     for (let i = 0; i < 5; i++) {
       const farm = {
         name: `Wind Farm in ${faker.address.city()}`,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        created_at: new Date(),
+        updated_at: new Date(),
       };
       farms.push(farm);
     }
