@@ -1,4 +1,5 @@
 const Component = require('../../db/models/Component');
+const Grade = require('../../db/models/Grade');
 
 async function httpGetAllComponents(req, res, next) {
   try {
@@ -30,7 +31,25 @@ async function httpGetComponentById(req, res, next) {
   }
 };
 
+async function httpGetGradesByComponentId(req, res, next) {
+  try {
+    const componentId = req.params.componentID;
+
+    const component = await Component.findByPk(componentId, { include: Grade });
+
+    if (!component) throw 'Component not found';
+
+    return res.status(200).json({
+      data: component.grades ?? []
+    });
+
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   httpGetAllComponents,
   httpGetComponentById,
+  httpGetGradesByComponentId,
 };
