@@ -7,6 +7,7 @@ const componentsRouter = require('./routes/components/components.router');
 const inspectionsRouter = require('./routes/inspections/inspections.router');
 const gradesRouter = require('./routes/grades/grades.router');
 const componentTypesRouter = require('./routes/component-types/component-types.router');
+const gradeTypesRouter = require('./routes/grade-types/grade-types.router');
 
 const errorHandler = require('./middleware/errorHandler');
 
@@ -20,6 +21,7 @@ app.use('/components', componentsRouter);
 app.use('/inspections', inspectionsRouter);
 app.use('/grades', gradesRouter);
 app.use('/component-types', componentTypesRouter);
+app.use('/grade-types', gradeTypesRouter);
 
 app.use(errorHandler);
 
