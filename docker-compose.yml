@@ -6,6 +6,13 @@ services:
     command: sh -c "npm run watch"
     volumes:
       - ./server/src:/server/src
+    environment:
+      - DB_HOST
+      - DB_PORT
+      - DB_DIALECT
+      - DB_DATABASE
+      - DB_USERNAME
+      - DB_PASSWORD
     ports:
       - '8000:8000'
     depends_on:
