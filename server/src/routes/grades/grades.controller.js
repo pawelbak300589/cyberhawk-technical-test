@@ -15,6 +15,22 @@ async function httpGetAllGrades(req, res, next) {
   }
 };
 
+async function httpGetGradesById(req, res, next) {
+  try {
+    const gradeId = req.params.gradeID;
+
+    const grade = await Grade.findByPk(gradeId);
+
+    if (!grade) throw 'Grade not found';
+
+    return res.status(200).json(grade);
+
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   httpGetAllGrades,
+  httpGetGradesById,
 };
