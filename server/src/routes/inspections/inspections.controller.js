@@ -31,7 +31,25 @@ async function httpGetInspectionById(req, res, next) {
   }
 };
 
+async function httpGetGradesByInspectionId(req, res, next) {
+  try {
+    const inspectionId = req.params.inspectionID;
+
+    const inspection = await Inspection.findByPk(inspectionId, { include: Grade });
+
+    if (!inspection) throw 'Inspection not found';
+
+    return res.status(200).json({
+      data: inspection.grades ?? []
+    });
+
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   httpGetAllInspections,
   httpGetInspectionById,
+  httpGetGradesByInspectionId,
 };
