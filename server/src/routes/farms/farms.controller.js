@@ -31,7 +31,25 @@ async function httpGetFarmById(req, res, next) {
   }
 };
 
+async function httpGetTurbinesByFarmId(req, res, next) {
+  try {
+    const farmId = req.params.farmID;
+
+    const farm = await Farm.findByPk(farmId, { include: Turbine });
+
+    if (!farm) throw 'Farm not found';
+
+    return res.status(200).json({
+      data: farm.turbines ?? []
+    });
+
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   httpGetAllFarms,
   httpGetFarmById,
+  httpGetTurbinesByFarmId,
 };
