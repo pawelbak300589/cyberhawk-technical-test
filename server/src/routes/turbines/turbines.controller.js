@@ -82,10 +82,27 @@ async function httpGetInspectionsByFarmId(req, res, next) {
   }
 };
 
+async function httpGetInspectionByIdAndByTurbineId(req, res, next) {
+  try {
+    const turbineId = req.params.turbineID;
+    const inspectionId = req.params.inspectionID;
+
+    const inspection = await Inspection.findOne({ where: { id: inspectionId, turbine_id: turbineId } });
+
+    if (!inspection) throw 'Inspection not found';
+
+    return res.status(200).json(inspection);
+
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   httpGetAllTurbines,
   httpGetTurbineById,
   httpGetComponentsByTurbineId,
   httpGetComponentByIdAndByTurbineId,
   httpGetInspectionsByFarmId,
+  httpGetInspectionByIdAndByTurbineId,
 };
