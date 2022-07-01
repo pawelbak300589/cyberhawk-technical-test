@@ -13,6 +13,7 @@ const setAssociations = () => {
   Turbine.hasMany(Inspection, { foreignKey: 'turbine_id' });
   Component.belongsTo(Turbine, { foreignKey: 'id' });
   Component.hasOne(ComponentType, { foreignKey: 'component_type_id' });
+  Component.hasMany(Grade, { foreignKey: 'component_id' });
   Inspection.belongsTo(Turbine, { foreignKey: 'id' });
   Grade.belongsTo(Inspection, { foreignKey: 'id' });
   Grade.belongsTo(Component, { foreignKey: 'id' });
