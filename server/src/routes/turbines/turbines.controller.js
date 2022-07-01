@@ -1,5 +1,6 @@
 const Turbine = require('../../db/models/Turbine');
 const Component = require('../../db/models/Component');
+const Inspection = require('../../db/models/Inspection');
 
 async function httpGetAllTurbines(req, res, next) {
   try {
@@ -64,9 +65,27 @@ async function httpGetComponentByIdAndByTurbineId(req, res, next) {
   }
 };
 
+async function httpGetInspectionsByFarmId(req, res, next) {
+  try {
+    const turbineId = req.params.turbineID;
+
+    const turbine = await Turbine.findByPk(turbineId, { include: Inspection });
+
+    if (!turbine) throw 'Turbine not found';
+
+    return res.status(200).json({
+      data: turbine.inspections ?? []
+    });
+
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   httpGetAllTurbines,
   httpGetTurbineById,
   httpGetComponentsByTurbineId,
   httpGetComponentByIdAndByTurbineId,
+  httpGetInspectionsByFarmId,
 };
