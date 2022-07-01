@@ -48,8 +48,25 @@ async function httpGetGradesByComponentId(req, res, next) {
   }
 };
 
+async function httpGetGradeByIdAndComponentId(req, res, next) {
+  try {
+    const componentId = req.params.componentID;
+    const gradeId = req.params.gradeID;
+
+    const grade = await Grade.findOne({ where: { id: gradeId, component_id: componentId } });
+
+    if (!grade) throw 'Grade not found';
+
+    return res.status(200).json(grade);
+
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   httpGetAllComponents,
   httpGetComponentById,
   httpGetGradesByComponentId,
+  httpGetGradeByIdAndComponentId,
 };
