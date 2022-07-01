@@ -5,6 +5,7 @@ const farmsRouter = require('./routes/farms/farms.router');
 const turbinesRouter = require('./routes/turbines/turbines.router');
 const componentsRouter = require('./routes/components/components.router');
 const inspectionsRouter = require('./routes/inspections/inspections.router');
+const gradesRouter = require('./routes/grades/grades.router');
 
 const errorHandler = require('./middleware/errorHandler');
 
@@ -16,6 +17,7 @@ app.use('/farms', farmsRouter);
 app.use('/turbines', turbinesRouter);
 app.use('/components', componentsRouter);
 app.use('/inspections', inspectionsRouter);
+app.use('/grades', gradesRouter);
 
 app.use(errorHandler);
 
