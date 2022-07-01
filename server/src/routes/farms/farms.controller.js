@@ -16,6 +16,22 @@ async function httpGetAllFarms(req, res, next) {
   }
 };
 
+async function httpGetFarmById(req, res, next) {
+  try {
+    const farmId = req.params.farmID;
+
+    const farm = await Farm.findByPk(farmId);
+
+    if (!farm) throw 'Farm not found';
+
+    return res.status(200).json(farm);
+
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   httpGetAllFarms,
+  httpGetFarmById,
 };
