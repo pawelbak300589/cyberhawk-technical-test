@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 
-const sequelize = require('../utils/database');
+const sequelize = require('../../utils/database');
 const Turbine = require('./Turbine');
 
 const Inspection = sequelize.define('inspections', {
@@ -22,6 +22,9 @@ const Inspection = sequelize.define('inspections', {
     allowNull: false,
     type: DataTypes.DATE,
   }
+}, {
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
 });
 
 module.exports = Inspection;

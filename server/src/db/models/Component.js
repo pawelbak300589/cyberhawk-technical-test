@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 
-const sequelize = require('../utils/database');
+const sequelize = require('../../utils/database');
 const Turbine = require('./Turbine');
 const ComponentType = require('./ComponentType');
 
@@ -27,6 +27,9 @@ const Component = sequelize.define('components', {
       key: 'id',
     }
   }
+}, {
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
 });
 
 module.exports = Component;

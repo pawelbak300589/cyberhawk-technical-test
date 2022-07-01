@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 
-const sequelize = require('../utils/database');
+const sequelize = require('../../utils/database');
 
 const Farm = sequelize.define('farm', {
   id: {
@@ -13,6 +13,9 @@ const Farm = sequelize.define('farm', {
     type: DataTypes.STRING,
     allowNull: false,
   }
+}, {
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
 });
 
 module.exports = Farm;

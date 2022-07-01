@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 
-const sequelize = require('../utils/database');
+const sequelize = require('../../utils/database');
 const Inspection = require('./Inspection');
 const Component = require('./Component');
 const GradeType = require('./GradeType');
@@ -36,6 +36,9 @@ const Grade = sequelize.define('grades', {
       key: 'id',
     }
   }
+}, {
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
 });
 
 module.exports = Grade;
