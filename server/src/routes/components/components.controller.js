@@ -15,6 +15,22 @@ async function httpGetAllComponents(req, res, next) {
   }
 };
 
+async function httpGetComponentById(req, res, next) {
+  try {
+    const componentId = req.params.componentID;
+
+    const component = await Component.findByPk(componentId);
+
+    if (!component) throw 'Component not found';
+
+    return res.status(200).json(component);
+
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   httpGetAllComponents,
+  httpGetComponentById,
 };
