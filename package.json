@@ -4,6 +4,8 @@
   "description": "Cyberhawk Technical Test",
   "main": "index.js",
   "scripts": {
+    "db:prep": "npm run db:migrate --prefix server && npm run db:seed --prefix server",
+    "db:prep:undo": "npm run db:seed:undo --prefix server && npm run db:migrate:undo --prefix server"
   },
   "keywords": [],
   "author": "",
