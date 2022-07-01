@@ -48,8 +48,25 @@ async function httpGetGradesByInspectionId(req, res, next) {
   }
 };
 
+async function httpGetGradeByIdAndInspectionId(req, res, next) {
+  try {
+    const inspectionId = req.params.inspectionID;
+    const gradeId = req.params.gradeID;
+
+    const grade = await Grade.findOne({ where: { id: gradeId, inspection_id: inspectionId } });
+
+    if (!grade) throw 'Grade not found';
+
+    return res.status(200).json(grade);
+
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   httpGetAllInspections,
   httpGetInspectionById,
   httpGetGradesByInspectionId,
+  httpGetGradeByIdAndInspectionId,
 };
