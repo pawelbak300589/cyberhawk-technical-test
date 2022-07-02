@@ -1,3 +1,5 @@
+import { green, red, yellow, blue, grey } from '@mui/material/colors';
+
 /**
  * Get grade status text by grade number
  * 
@@ -42,22 +44,22 @@ const getGradeColour = (grade) => {
 
   switch (grade) {
     case '5':
-      gradeColour = 'error';
+      gradeColour = red[300];
       break;
     case '4':
-      gradeColour = 'warning';
+      gradeColour = yellow[800];
       break;
     case '3':
-      gradeColour = 'info';
+      gradeColour = blue[300];
       break;
     case '2':
-      gradeColour = 'success';
+      gradeColour = green[300];
       break;
     case '1':
-      gradeColour = 'success';
+      gradeColour = green[300];
       break;
     default:
-      gradeColour = 'default';
+      gradeColour = grey[500];
       break;
   }
 
