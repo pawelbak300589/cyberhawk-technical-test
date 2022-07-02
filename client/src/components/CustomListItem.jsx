@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { styled, ListItem, ListItemText, ListItemAvatar, Avatar, IconButton } from '@mui/material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { grey } from '@mui/material/colors';
 
 const StyledListItem = styled(ListItem)`
   border: 1px solid #eeeeee;
@@ -12,7 +13,7 @@ const StyledListItem = styled(ListItem)`
   }
 `;
 
-const CustomListItem = ({ Icon, title, subtitle, link }) => {
+const CustomListItem = ({ Icon, iconColour, title, subtitle, link }) => {
   return (
     <StyledListItem
       secondaryAction={
@@ -21,7 +22,7 @@ const CustomListItem = ({ Icon, title, subtitle, link }) => {
         </IconButton> : <></>
       }>
       <ListItemAvatar>
-        <Avatar>
+        <Avatar sx={{ bgcolor: iconColour }}>
           <Icon />
         </Avatar>
       </ListItemAvatar>
@@ -29,5 +30,9 @@ const CustomListItem = ({ Icon, title, subtitle, link }) => {
     </StyledListItem>
   );
 };
+
+CustomListItem.defaultProps = {
+  iconColour: grey[500]
+}
 
 export default CustomListItem;
