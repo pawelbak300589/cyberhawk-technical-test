@@ -16,9 +16,9 @@ const CustomListItem = ({ Icon, title, subtitle, link }) => {
   return (
     <StyledListItem
       secondaryAction={
-        <IconButton edge="end" aria-label="show" component={Link} to={link}>
+        link ? <IconButton edge="end" aria-label="show" component={Link} to={link}>
           <ArrowForwardIosIcon />
-        </IconButton>
+        </IconButton> : <></>
       }>
       <ListItemAvatar>
         <Avatar>
