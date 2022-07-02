@@ -32,7 +32,6 @@ const FarmPage = () => {
       const turbinesWithAssociations = turbinesResponse.map(turbine => {
         const components = componentsResponse.filter(component => component.turbine_id === turbine.id);
         const inspections = inspectionsResponse.filter(inspection => inspection.turbine_id === turbine.id);
-        console.log('inspections', inspections);
         return ({
           ...turbine,
           componentsNum: components.length,
@@ -40,7 +39,6 @@ const FarmPage = () => {
           lastInspection: inspections.sort((a, b) => new Date(a.inspection_at) - new Date(b.inspection_at)).pop(),
         })
       });
-      console.log('turbinesWithAssociations', turbinesWithAssociations);
       setTurbines(turbinesWithAssociations);
     } catch (err) {
       setError(err);
