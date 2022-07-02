@@ -27,15 +27,14 @@ const FarmsPage = () => {
       setError(err);
     }
     setLoading(false);
-  }, [])
+  }, []);
 
   useEffect(() => {
     getFarmsWithTurbinesNumber();
   }, [getFarmsWithTurbinesNumber]);
 
   return (
-    <PageLayout title="Wind Farms" loading={loading} breadcrumbs={pageBreadcrumbs}>
-      {error}
+    <PageLayout title="Wind Farms" loading={loading} error={error} breadcrumbs={pageBreadcrumbs}>
       <CustomList>
         {farms.map(farm => (
           <CustomListItem key={farm.id} Icon={AirIcon} title={farm.name} subtitle={`Turbines: ${farm.turbinesNum}`} link={`${farm.id}`} />
