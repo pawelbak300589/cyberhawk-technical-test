@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import moment from 'moment';
 import { useParams } from "react-router-dom";
-import { Box, Typography, Badge, Alert } from '@mui/material';
+import { Box, Typography, Alert } from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
 
 import { getAllItems, getItem } from '../services/windFarmsApi/apiGetters';
@@ -91,7 +91,6 @@ const InspectionPage = () => {
                   iconColour={getGradeColour(component.grade.type)}
                   title={`${component.type}`}
                   subtitle={`${getGradeStatus(component.grade.type)}`}
-                // link={`/components/${component.id}`}
                 />
               ))}
             </CustomList>
