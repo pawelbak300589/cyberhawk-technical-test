@@ -61,7 +61,7 @@ const FarmPage = () => {
             Icon={WindPowerIcon}
             title={turbine.name}
             subtitle={`Components: ${turbine.componentsNum} | Inspections: ${turbine.inspectionsNum} (Last: ${moment(turbine.lastInspection.inspection_at).fromNow()})`}
-            link={`${turbine.id}`}
+            link={`/turbines/${turbine.id}`}
           />
         ))}
       </CustomList>
