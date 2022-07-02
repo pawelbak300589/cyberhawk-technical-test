@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 
 require('./db/models/associations')();
 const farmsRouter = require('./routes/farms/farms.router');
@@ -12,6 +13,10 @@ const gradeTypesRouter = require('./routes/grade-types/grade-types.router');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
+
+app.use(cors({
+  origin: 'http://localhost:3000',
+}));
 
 app.use(express.json());
 
