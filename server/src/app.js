@@ -15,13 +15,13 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/farms', farmsRouter);
-app.use('/turbines', turbinesRouter);
-app.use('/components', componentsRouter);
-app.use('/inspections', inspectionsRouter);
-app.use('/grades', gradesRouter);
-app.use('/component-types', componentTypesRouter);
-app.use('/grade-types', gradeTypesRouter);
+app.use('/api/farms', farmsRouter);
+app.use('/api/turbines', turbinesRouter);
+app.use('/api/components', componentsRouter);
+app.use('/api/inspections', inspectionsRouter);
+app.use('/api/grades', gradesRouter);
+app.use('/api/component-types', componentTypesRouter);
+app.use('/api/grade-types', gradeTypesRouter);
 
 app.use(errorHandler);
 
