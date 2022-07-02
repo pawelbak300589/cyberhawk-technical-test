@@ -14,7 +14,7 @@ const PageBreadcrumbs = ({ breadcrumbs }) => {
             {breadcrumb.text}
           </Link>
         ) : (
-          <Typography color="text.primary">{breadcrumb.text}</Typography>
+          <Typography color="text.primary" key={breadcrumb.text}>{breadcrumb.text}</Typography>
         ))
       }
     </Breadcrumbs>

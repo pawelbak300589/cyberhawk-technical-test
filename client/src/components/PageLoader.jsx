@@ -5,8 +5,8 @@ const PageLoader = () => {
   return (
     <Box display="flex" flexDirection="column" justifyContent="space-between" alignItems="stretch">
       {
-        [...Array(5)].map(i => (
-          <Box mb={1}>
+        [1, 2, 3, 4, 5].map(i => (
+          <Box mb={1} key={i}>
             <Skeleton variant="rectangular" height={80} />
           </Box>
         ))
