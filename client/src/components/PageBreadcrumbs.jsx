@@ -10,7 +10,7 @@ const PageBreadcrumbs = ({ breadcrumbs }) => {
       </Link>
       {
         breadcrumbs.map((breadcrumb) => "link" in breadcrumb ? (
-          <Link underline="hover" color="inherit" component={RouterLink} to={breadcrumb.link}>
+          <Link underline="hover" color="inherit" component={RouterLink} to={breadcrumb.link} key={breadcrumb.text}>
             {breadcrumb.text}
           </Link>
         ) : (
