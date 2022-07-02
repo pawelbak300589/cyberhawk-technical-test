@@ -1,11 +1,12 @@
 import React from 'react';
 
+import PageLayout from '../components/PageLayout';
+
 const HomePage = () => {
 
   return (
-    <>
-      <h3>Home page</h3>
-    </>
+    <PageLayout title="Home page">
+    </PageLayout>
   );
 };
 

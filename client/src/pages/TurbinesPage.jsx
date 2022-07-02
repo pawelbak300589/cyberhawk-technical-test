@@ -1,10 +1,10 @@
 import React from 'react';
 
+import PageLayout from '../components/PageLayout';
+
 const TurbinesPage = () => {
   return (
-    <>
-      Turbines Page
-    </>
+    <PageLayout title="Turbines"></PageLayout>
   );
 };
 

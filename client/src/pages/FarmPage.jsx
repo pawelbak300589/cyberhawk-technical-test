@@ -1,13 +1,15 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
 
+import PageLayout from '../components/PageLayout';
+
 const FarmPage = () => {
   let { farmId } = useParams();
 
   return (
-    <>
-      Farm page {farmId}
-    </>
+    <PageLayout title="Farm">
+      {farmId}
+    </PageLayout>
   );
 };
 

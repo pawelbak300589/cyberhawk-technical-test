@@ -1,10 +1,10 @@
 import React from 'react';
 
+import PageLayout from '../components/PageLayout';
+
 const InspectionsPage = () => {
   return (
-    <>
-      Inspections Page
-    </>
+    <PageLayout title="Inspections"></PageLayout>
   );
 };
 
