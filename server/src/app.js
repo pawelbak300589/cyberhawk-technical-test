@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 
 require('./db/models/associations')();
 const farmsRouter = require('./routes/farms/farms.router');
@@ -19,6 +20,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.use('/api/farms', farmsRouter);
 app.use('/api/turbines', turbinesRouter);
@@ -27,6 +29,9 @@ app.use('/api/inspections', inspectionsRouter);
 app.use('/api/grades', gradesRouter);
 app.use('/api/component-types', componentTypesRouter);
 app.use('/api/grade-types', gradeTypesRouter);
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+});
 
 app.use(errorHandler);
 
