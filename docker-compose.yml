@@ -7,6 +7,8 @@ services:
     volumes:
       - ./server/src:/server/src
     environment:
+      - APP_PORT
+      - FORWARD_DB_PORT
       - DB_HOST
       - DB_PORT
       - DB_DIALECT
@@ -14,13 +16,13 @@ services:
       - DB_USERNAME
       - DB_PASSWORD
     ports:
-      - '8000:8000'
+      - '${APP_PORT:-8000}:8000'
     depends_on:
       - mysql
   mysql:
     image: mysql
     ports:
-      - '8001:3306'
+      - '${FORWARD_DB_PORT:-3306}:3306'
     environment:
       MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
       MYSQL_ROOT_HOST: "%"
