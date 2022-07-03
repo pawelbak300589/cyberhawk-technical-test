@@ -77,6 +77,8 @@ After that change you will need to [rebuild React App](#rebuild-react-app) or to
 
 To rebuild React app (for use as pre-build app on the docker's NodeJs server) follow steps below:
 
+**WARNING!** *those step are only needed if you changed `APP_PORT` value in .env or you changed code in the React App*
+
 - Go to the `client` folder to install React packages:
 
 ```bash
@@ -101,6 +103,8 @@ docker-compose up -d
 ## Run React App in "dev mode"
 
 To run React App in the "dev mode" you need to follow steps below:
+
+**WARNING!** *those step are only needed if you want to run React App in development mode to see changes automatically applied on the screen*
 
 - Go to the `client` folder to install React packages:
 
