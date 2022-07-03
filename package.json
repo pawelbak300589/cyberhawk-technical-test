@@ -4,6 +4,12 @@
   "description": "Cyberhawk Technical Test",
   "main": "index.js",
   "scripts": {
+    "install-server": "npm install --prefix server",
+    "install-client": "npm install --prefix client",
+    "install": "npm run install-server && npm run install-client",
+    "server": "npm run watch --prefix server",
+    "client": "npm start --prefix client",
+    "build-client": "npm run build --prefix client",
     "db:prep": "npm run db:migrate --prefix server && npm run db:seed --prefix server",
     "db:prep:undo": "npm run db:seed:undo --prefix server && npm run db:migrate:undo --prefix server"
   },

@@ -5,7 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "watch": "nodemon src/server.js --legacy-watch",
-    "start": "set PORT=8000&& node src/server.js",
+    "start": "node src/server.js",
     "db:migrate": "npx sequelize-cli db:migrate",
     "db:migrate:undo": "npx sequelize-cli db:migrate:undo:all",
     "db:seed": "npx sequelize-cli db:seed:all",
