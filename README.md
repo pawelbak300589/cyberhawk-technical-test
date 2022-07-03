@@ -71,13 +71,13 @@ I would suggest running this project with this env values as React App is using 
 
 If you would like to change APP_PORT in .env file you will need to change API port in the React App (in file `client\src\services\backend.js`).
 
-After that change you will need to [rebuild React App](#rebuild-react-app) or to [run React App in "dev mode"](#run-react-app-in-dev-mode).
+After that change you will need to [rebuild React App](#rebuild-react-app) or [run React App in "dev mode"](#run-react-app-in-dev-mode).
 
 ## Rebuild React App
 
 To rebuild React app (for use as pre-build app on the docker's NodeJs server) follow steps below:
 
-**WARNING!** *those step are only needed if you changed `APP_PORT` value in .env or you changed code in the React App*
+**WARNING!** *those steps are only needed if you changed `APP_PORT` value in .env file or you changed code in the React App*
 
 - Go to the `client` folder to install React packages:
 
@@ -104,7 +104,7 @@ docker-compose up -d
 
 To run React App in the "dev mode" you need to follow steps below:
 
-**WARNING!** *those step are only needed if you want to run React App in development mode to see changes automatically applied on the screen*
+**WARNING!** *those steps are only needed if you want to run React App in development mode to see changes automatically applied on the screen*
 
 - Go to the `client` folder to install React packages:
 
@@ -122,3 +122,12 @@ npm start
 - React App will start automatically under port 3000
 
 Note: Port 3000 is whitelisted in the `server\src\app.js` file (line 19). If your app will start with a different port this line will need to be updated to fix CORS errors. Docker image for server will need to be rebuild and re-run.
+
+## What more could be done?
+
+Below is the list of things that probably should be done, so that this project would be "properly finished".
+
+- **Refactoring** - I feel like there are some parts that should be refactored ;)
+- **Testing** - I didn't create any tests for back-end or front-end - in the "normal" project I would focus on the Unit/Integration tests from the beginning of the development, but I wanted to show my NodeJs/ReactJs skills and I didn't have enough time to do it.
+- **Simpler build setup** - I think it can be done in a better (simpler) way.
+- **Better FE design?** - I'm not a designer, so front-end looks simple. With provided design I can do things better :)
